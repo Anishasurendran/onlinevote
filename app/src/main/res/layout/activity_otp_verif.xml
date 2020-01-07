@@ -6,4 +6,30 @@
     android:layout_height="match_parent"
     tools:context=".OtpVerif">
 
+
+    <EditText
+        android:id="@+id/editText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="148dp"
+        android:layout_marginEnd="121dp"
+        android:layout_marginRight="121dp"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:text="Enter the OTP number"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/btn_generate_otp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="20dp"
+        android:layout_marginLeft="30dp"
+        android:background="@color/colorAccent"
+        android:text="VERIFY OTP"
+        android:textSize="20dp"
+        android:textColor="@color/blue"
+        app:layout_constraintEnd_toEndOf="parent"
+        tools:layout_editor_absoluteY="415dp" />
 </androidx.constraintlayout.widget.ConstraintLayout>
