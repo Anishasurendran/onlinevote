@@ -4,4 +4,11 @@
     <color name="colorPrimaryDark">#BF0A30</color>
     <color name="colorAccent">#D81B60</color>
     <color name="blue">#0000FF</color>
+
+
+    <color name="textColor">#444444</color>
+    <color name="textWhite">#FEFEFE</color>
+
+    <color name="line_grey">#c7c6c6</color>
+    <color name="grey_text">#888888</color>
 </resources>
