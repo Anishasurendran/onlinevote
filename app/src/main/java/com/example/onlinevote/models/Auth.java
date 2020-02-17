@@ -13,9 +13,8 @@ public class Auth {
     @SerializedName("user")
     int id;
 
-
-    @SerializedName("email")
-    String email;
+    @SerializedName("success")
+    boolean success;
 
     public String getAccessToken() {
         return accessToken;
@@ -30,6 +29,6 @@ public class Auth {
     public int getId(){return  id;}
     public  void setId(int id) {this.id =  id;}
 
-    public  String getEmail(){return  email;}
-    public void setEmail(String email){this.email = email;}
+    public  boolean getEmail(){return  success;}
+    public void setEmail(boolean success){this.success = success;}
 }

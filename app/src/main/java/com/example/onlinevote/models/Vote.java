@@ -11,8 +11,8 @@ public class Vote {
     @SerializedName("candidate")
     Candidate candidate;
 
-    public String getName(){return  name;}
-    public void setName(String name){this.name = name;}
+    public Election getName(){return  name;}
+    public void setName(Election name){this.name = name;}
 
 
 

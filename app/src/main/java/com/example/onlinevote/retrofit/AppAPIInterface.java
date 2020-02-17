@@ -15,17 +15,17 @@ import retrofit2.http.Path;
 public interface AppAPIInterface {
 
     @FormUrlEncoded()
-    @POST("verify/aadhar")
+    @POST("verify/aadhar/")
     Call<Auth> verifyAadhar(@FieldMap HashMap<String, String> params);
 
 
     @FormUrlEncoded()
     @POST("verify/otp/{userId}")
-    Call<Auth> verifyUser(@Path("userId") int user, @FieldMap HashMap<String, String> params);
+    Call<Auth> verifyOTP(@Path("userId") int user, @FieldMap HashMap<String, String> params);
 
 
     @FormUrlEncoded()
-    @POST("verify/photo/{userId}")
+    @POST("verify/photo/{userId}/")
     Call<Auth> verifyPhoto(@Path("userId") int user, @FieldMap HashMap<String, String> params);
 
 

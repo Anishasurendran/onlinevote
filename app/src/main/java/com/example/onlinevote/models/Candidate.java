@@ -5,7 +5,7 @@ import com.google.gson.annotations.SerializedName;
 public class Candidate {
 
     @SerializedName("name")
-    Candidate candidate_name;
+    String candidate_name;
 
     @SerializedName("address")
     String cand_address;

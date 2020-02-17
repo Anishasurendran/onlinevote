@@ -34,7 +34,7 @@ public class DataManager {
         mContext = context;
     }
 
-    public  void verifyEmail(HashMap<String, String> aadhar, final RetrofitCallBack<Auth> retrofitCallBack){
+    public  void verifyAadhar(HashMap<String, String> aadhar, final RetrofitCallBack<Auth> retrofitCallBack){
 
         Call<Auth> responseCall = AppClient.getAPiClient().create(AppAPIInterface.class).verifyAadhar(aadhar);
         responseCall.enqueue((new Callback<Auth>() {
@@ -54,6 +54,27 @@ public class DataManager {
 
     }
 
+
+    public   void verifyOTP(int userId,HashMap<String, String> otp, final RetrofitCallBack<Auth> retrofitCallBack){
+
+        Call<Auth> responseCall =  appAPIInterface.verifyOTP(userId, otp);
+        responseCall.enqueue(new Callback<Auth>() {
+            @Override
+            public void onResponse(Call<Auth> call, Response<Auth> response) {
+                if(response.isSuccessful())
+                    retrofitCallBack.Success(response.body());
+                else
+                    retrofitCallBack.Failure("Something went wrong");
+            }
+
+            @Override
+            public void onFailure(Call<Auth> call, Throwable t) {
+
+                retrofitCallBack.Failure("Something went wrong");
+            }
+        });
+
+    }
 
 
 

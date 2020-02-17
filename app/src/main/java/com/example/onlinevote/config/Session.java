@@ -30,13 +30,13 @@ public class Session {
         return sharedPreferences.getString("name", "");
     }
 
-    public  static void setDesignation(String designation){editor.putString("designation", designation).apply();}
-    public static  String getDesignation(){return sharedPreferences.getString("designation", "");}
+    public  static void setPhone(String phone){editor.putString("phone", phone).apply();}
+    public static  String getPhone(){return sharedPreferences.getString("phone", "");}
 
 
 
-    public  static void setEmail(String email){editor.putString("email", email).apply();}
-    public static  String getEmail(){return sharedPreferences.getString("email", "");}
+    public  static void setUserId(int userId){editor.putInt("user", userId).apply();}
+    public static  int getUserId(){return sharedPreferences.getInt("user", 0);}
 
 
 

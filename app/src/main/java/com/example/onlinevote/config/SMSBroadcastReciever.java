@@ -1,4 +1,4 @@
-package com.example.facey.config;
+package com.example.onlinevote.config;
 
 import android.content.BroadcastReceiver;
 import android.content.Context;
@@ -7,6 +7,8 @@ import android.os.Bundle;
 import android.provider.SyncStateContract;
 import android.telephony.SmsMessage;
 import android.util.Log;
+
+import com.example.onlinevote.config.Constants;
 
 public class SMSBroadcastReciever extends BroadcastReceiver {
 

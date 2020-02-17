@@ -2,8 +2,9 @@ package com.example.onlinevote.appclass;
 
 import android.app.Application;
 
-import com.example.facey.config.DataManager;
-import com.example.facey.config.Session;
+import com.example.onlinevote.config.DataManager;
+import com.example.onlinevote.config.Session;
+
 
 public class VoteApp extends Application {
 
