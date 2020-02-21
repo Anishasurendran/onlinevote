@@ -1,14 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#D21F3C</color>
-    <color name="colorPrimaryDark">#BF0A30</color>
+    <color name="colorPrimary">#FEFEFE</color>
+    <color name="colorPrimaryDark">#2b2b2b</color>
     <color name="colorAccent">#D81B60</color>
     <color name="blue">#0000FF</color>
 
 
-    <color name="textColor">#444444</color>
+    <color name="textColor">#FEFEFE</color>
     <color name="textWhite">#FEFEFE</color>
+    <color name="textSecondary">#EEEEEE</color>
+
 
     <color name="line_grey">#c7c6c6</color>
     <color name="grey_text">#888888</color>
+    <color name="background">#121212</color>
+    <color name="background_light">#212121</color>
+    <color name="mtrl_textinput_default_box_stroke_color">#5a5a5a</color>
 </resources>

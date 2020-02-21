@@ -4,7 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    tools:context=".MainActivity"
+    android:background="@color/background">
 
     <TextView
         android:id="@+id/textView"
@@ -30,7 +31,7 @@
         android:layout_centerHorizontal="true"
         android:layout_marginStart="8dp"
         android:layout_marginTop="104dp"
-        android:shadowColor="#C7C7C7"
+        android:shadowColor="#8a8a8a"
         android:shadowDx="1"
         android:shadowDy="2"
         android:shadowRadius="3"
@@ -58,7 +59,7 @@
         app:layout_constraintTop_toBottomOf="@+id/textView">
 
         <com.google.android.material.textfield.TextInputLayout
-            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            style="@style/WhiteTextInputLayout"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_marginRight="16dp"
@@ -75,12 +76,13 @@
                 android:inputType="number"
                 android:maxLength="4"
                 android:textAlignment="center"
-                android:textSize="21sp" />
+                android:textSize="21sp"
+                android:textColor="@color/textColor"/>
 
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.textfield.TextInputLayout
-            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            style="@style/WhiteTextInputLayout"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_marginRight="16dp"
@@ -97,12 +99,13 @@
                 android:inputType="number"
                 android:maxLength="4"
                 android:textAlignment="center"
-                android:textSize="21sp" />
+                android:textSize="21sp"
+                android:textColor="@color/textColor"/>
 
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.textfield.TextInputLayout
-            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            style="@style/WhiteTextInputLayout"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
@@ -118,7 +121,8 @@
                 android:inputType="number"
                 android:maxLength="4"
                 android:textAlignment="center"
-                android:textSize="21sp" />
+                android:textSize="21sp"
+                android:textColor="@color/textColor"/>
 
         </com.google.android.material.textfield.TextInputLayout>
 
@@ -135,7 +139,8 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textLayout" />
+        app:layout_constraintTop_toBottomOf="@+id/textLayout"
+        app:strokeColor="@color/textWhite"/>
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

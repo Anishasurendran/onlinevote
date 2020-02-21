@@ -3,7 +3,11 @@ package com.example.onlinevote.models;
 import com.google.gson.annotations.SerializedName;
 
 public class Election {
-    @SerializedName("electionname")
+
+    @SerializedName("id")
+    int id;
+
+    @SerializedName("election_name")
     String election_name;
 
     @SerializedName("sdate")
@@ -14,6 +18,17 @@ public class Election {
 
     @SerializedName("location")
     String location;
+
+    @SerializedName("count")
+    int count;
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
 
     public String getElectionName(){return election_name;}
     public void setElectionName(String election_name){this.election_name = election_name;}
@@ -30,4 +45,11 @@ public class Election {
     public String getLocation(){return location;}
     public void setLocation(String location){this.election_name = location;}
 
+    public void setCount(int count) {
+        this.count = count;
+    }
+
+    public int getCount() {
+        return count;
+    }
 }

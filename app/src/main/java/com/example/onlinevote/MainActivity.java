@@ -32,6 +32,7 @@ public class MainActivity extends AppCompatActivity {
 
     private String adharPart1, adharPart2, adharPart3;
     public static final int MY_PERMISSIONS_GET_SMS = 1212;
+    public static final int MY_PERMISSIONS_READ_EXTERNAL = 1122;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -115,7 +116,6 @@ public class MainActivity extends AppCompatActivity {
                     }
                     else
                     {
-
                         DataManager.getDataManager().verifyAadhar(aadharParams(adharNumber), new RetrofitCallBack<Auth>() {
                             @Override
                             public void Success(Auth data) {
@@ -138,6 +138,7 @@ public class MainActivity extends AppCompatActivity {
         });
 
         checkPermission();
+        checkStoragePermisstion();
 
     }
 
@@ -168,6 +169,40 @@ public class MainActivity extends AppCompatActivity {
                     alert.show();
                 } else {
                     ActivityCompat.requestPermissions(this, new String[]{android.Manifest.permission.RECEIVE_SMS}, MY_PERMISSIONS_GET_SMS);
+                }
+                return false;
+
+            } else {
+                return true;
+            }
+        } else {
+            return true;
+        }
+
+    }
+
+
+    public boolean checkStoragePermisstion()
+    {
+
+        int currentAPIVersion = Build.VERSION.SDK_INT;
+        if (currentAPIVersion >= android.os.Build.VERSION_CODES.M) {
+            if (ContextCompat.checkSelfPermission(this, Manifest.permission.READ_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED ) {
+                if (ActivityCompat.shouldShowRequestPermissionRationale(this, Manifest.permission.READ_EXTERNAL_STORAGE)) {
+                    AlertDialog.Builder alertBuilder = new AlertDialog.Builder(this);
+                    alertBuilder.setCancelable(true);
+                    alertBuilder.setTitle("Permission necessary");
+                    alertBuilder.setMessage("Read storage permission is necessary to read image captured !!!");
+                    alertBuilder.setPositiveButton(android.R.string.yes, new DialogInterface.OnClickListener() {
+                        @TargetApi(Build.VERSION_CODES.JELLY_BEAN)
+                        public void onClick(DialogInterface dialog, int which) {
+                            ActivityCompat.requestPermissions(MainActivity.this, new String[]{Manifest.permission.READ_EXTERNAL_STORAGE}, MY_PERMISSIONS_READ_EXTERNAL);
+                        }
+                    });
+                    AlertDialog alert = alertBuilder.create();
+                    alert.show();
+                } else {
+                    ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.READ_EXTERNAL_STORAGE}, MY_PERMISSIONS_READ_EXTERNAL);
                 }
                 return false;
 

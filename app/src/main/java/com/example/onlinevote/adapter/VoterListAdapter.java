@@ -8,28 +8,32 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.onlinevote.R;
+import com.example.onlinevote.models.Candidate;
+import com.example.onlinevote.models.CandidateList;
 
 import java.util.ArrayList;
 
 public class VoterListAdapter extends RecyclerView.Adapter<VoterListAdapter.VoteListViewHolder> {
 
     Context context;
-    ArrayList<String> list;
+    ArrayList<CandidateList> candidates;
 
-    public VoterListAdapter(Context context, ArrayList<String> list){
+    public VoterListAdapter(Context context, ArrayList<CandidateList> candidates){
         this.context = context;
-        this.list =  list;
+        this.candidates =  candidates;
     }
 
 
     @Override
     public void onBindViewHolder(@NonNull VoteListViewHolder holder, int position) {
-        holder.candiadteTextView.setText(list.get(position));
+        CandidateList mCandidate =   candidates.get(position);
+        holder.candiadteTextView.setText(mCandidate.getCandidate().getName());
     }
 
 
@@ -45,7 +49,7 @@ public class VoterListAdapter extends RecyclerView.Adapter<VoterListAdapter.Vote
 
     @Override
     public int getItemCount() {
-        return list.size();
+        return candidates.size();
     }
 
 
