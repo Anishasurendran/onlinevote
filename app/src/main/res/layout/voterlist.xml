@@ -1,21 +1,55 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:orientation="horizontal" android:layout_width="match_parent"
-    android:layout_height="wrap_content">
+    android:orientation="horizontal"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    app:cardBackgroundColor="@color/background"
+    app:cardCornerRadius="8dp"
+    app:cardElevation="2dp"
+    android:elevation="1dp"
+    android:layout_marginTop="8dp"
+    android:layout_marginBottom="8dp"
+    android:id="@+id/voterCard">
 
 
-  <TextView
-      android:textColor="#ff0000"
-      android:id="@+id/candidatename"
-      android:layout_width="wrap_content"
+  <LinearLayout
+      android:layout_width="match_parent"
       android:layout_height="wrap_content"
-      android:textSize="20dp"
-      android:layout_marginLeft="10dp"
+      android:orientation="horizontal"
+      android:padding="8dp">
 
-      android:text="candidate name"/>
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:minWidth="240dp"
+        android:orientation="vertical"
+        android:padding="8dp">
 
+      <TextView
+          android:textColor="@color/textColor"
+          android:id="@+id/candidatename"
+          android:layout_width="240dp"
+          android:layout_height="wrap_content"
+          android:textSize="21dp"
+          android:text="candidate name"
+          android:textFontWeight="500"
+          android:ellipsize="end"
+          android:maxLines="1"
+          />
+
+      <com.google.android.material.button.MaterialButton
+          style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+          android:background="@color/background_light"
+          android:id="@+id/candidatebutton"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:text="vote"
+          android:textFontWeight="500"
+          android:layout_marginTop="16dp"
+          app:strokeColor="@color/textColor"/>
+
+    </LinearLayout>
 
     <ImageView
         android:id="@+id/symbol"
@@ -25,14 +59,11 @@
         android:layout_marginLeft="60dp"
         android:src="@drawable/camera" />
 
-    <Button
-        android:id="@+id/candidatebutton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="70dp"
-        android:text="vote"
-        android:textColor="#ff0000" />
+  </LinearLayout>
 
 
 
-</LinearLayout>
+
+
+
+</com.google.android.material.card.MaterialCardView>

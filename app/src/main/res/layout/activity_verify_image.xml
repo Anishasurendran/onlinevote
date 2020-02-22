@@ -4,7 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".VerifyImageActivity">
+    tools:context=".VerifyImageActivity"
+    android:background="@color/background">
 
     <ImageButton
         android:id="@+id/imageBackButton"
@@ -12,10 +13,10 @@
         android:layout_height="wrap_content"
         android:layout_marginLeft="32dp"
         android:layout_marginTop="32dp"
-        android:background="@drawable/round_button"
+        android:background="@drawable/round_black"
         android:elevation="4dp"
         android:padding="4dp"
-        android:src="@drawable/ic_arrow_back_black_24dp"
+        android:src="@drawable/ic_arrow_back_white_24dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
@@ -48,6 +49,7 @@
         android:layout_marginTop="144dp"
         android:text="A final check, let us take your photo"
         android:textSize="16dp"
+        android:textColor="@color/line_grey"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
