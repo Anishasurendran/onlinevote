@@ -21,18 +21,18 @@
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true"
         tools:ignore="GoogleAppIndexingWarning">
-        <activity android:name=".MainActivity"></activity>
-        <activity android:name=".VerifyImageActivity" />
-        <activity android:name=".HomeActivity" />
-        <activity android:name=".OTPVerificationActivity" />
-        <activity android:name=".Capture" />
-        <activity android:name=".ElectionActivity">
+        <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".ElectionActivity" />
+        <activity android:name=".VerifyImageActivity" />
+        <activity android:name=".HomeActivity" />
+        <activity android:name=".OTPVerificationActivity" />
+        <activity android:name=".Capture" />
 
         <provider
             android:name="androidx.core.content.FileProvider"
@@ -41,8 +41,9 @@
             android:grantUriPermissions="true">
             <meta-data
                 android:name="android.support.FILE_PROVIDER_PATHS"
-                android:resource="@xml/file_path"></meta-data>
+                android:resource="@xml/file_path" />
         </provider>
+
         <receiver
             android:name=".config.SMSBroadcastReciever"
             android:enabled="true"

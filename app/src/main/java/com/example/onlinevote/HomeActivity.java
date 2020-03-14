@@ -4,6 +4,8 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageButton;
@@ -23,17 +25,18 @@ public class HomeActivity extends AppCompatActivity {
     RecyclerView voterListRecyclerView;
     VoterListAdapter listAdapter;
     ArrayList<Candidate> candidates;
+    AlertDialog dialog;
 
     private TextView electionTitleTextView;
 
-    private  int electionId = 0;
+    private  int elecionId = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
 
-        electionId = getIntent().getIntExtra("id", 0);
+        int electionId = getIntent().getIntExtra("id", 0);
 
         voterListRecyclerView = findViewById(R.id.voter_list);
         electionTitleTextView = findViewById(R.id.election_title);
@@ -48,7 +51,27 @@ public class HomeActivity extends AppCompatActivity {
         });
 
         electionTitleTextView.setText(getIntent().getStringExtra("name"));
+
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setMessage("Do  you want to confirm your vote?")
+        .setPositiveButton("confirm", new DialogInterface.OnClickListener() {
+            public void onClick(DialogInterface dialog, int id) {
+                // FIRE ZE MISSILES!
+            }
+        })
+        .setNegativeButton("deny", new DialogInterface.OnClickListener() {
+            public void onClick(DialogInterface dialog, int id) {
+                // User cancelled the dialog
+            }
+        });
+
+        dialog = builder.create();
+        dialog.show();
+
         fetchCandidates(electionId);
+
+
+
 
     }
 
@@ -71,4 +94,5 @@ public class HomeActivity extends AppCompatActivity {
             }
         });
     }
+
 }

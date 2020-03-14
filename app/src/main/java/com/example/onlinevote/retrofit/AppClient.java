@@ -19,8 +19,8 @@ import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
 public class AppClient {
-    
-    public static final String MASTEERURL = "http://192.168.43.221:8000/";
+
+    public static final String MASTEERURL = "http://192.168.137.120:8080/";
     public static Retrofit retrofit = null;
 
     public static Retrofit getAPiClient() {
