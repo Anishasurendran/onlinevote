@@ -126,8 +126,8 @@ public class OTPVerificationActivity extends AppCompatActivity {
             public void onTextChanged(CharSequence s, int start, int before, int count) {
                 if (edtTxtOTP4.getText().toString().length() == 1 )     //size as per your requirement
                 {
-//                    verifyUserOTP(edtTxtOTP1.getText().toString()+edtTxtOTP2.getText().toString()+edtTxtOTP3.getText().toString()+edtTxtOTP4.getText().toString());
-                    startActivity(new Intent(OTPVerificationActivity.this, VerifyImageActivity.class));
+                    verifyUserOTP(edtTxtOTP1.getText().toString()+edtTxtOTP2.getText().toString()+edtTxtOTP3.getText().toString()+edtTxtOTP4.getText().toString());
+//                    startActivity(new Intent(OTPVerificationActivity.this, VerifyImageActivity.class));
                 }
             }
 

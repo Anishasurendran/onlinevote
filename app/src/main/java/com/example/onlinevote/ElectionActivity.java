@@ -37,7 +37,6 @@ ElectionActivity extends AppCompatActivity {
         listInterface = new ElectionListAdapter.ElectionListInterface() {
             @Override
             public void onCardClick(int id, String name) {
-                Toast.makeText(getApplicationContext(), "Clicked on election "+ id, Toast.LENGTH_LONG).show();
 
                 startActivity(new Intent(ElectionActivity.this, HomeActivity.class)
                         .putExtra("id", id)

@@ -1,28 +1,24 @@
 package com.example.onlinevote.retrofit;
 
-import android.app.DownloadManager;
-
 import com.example.onlinevote.models.Auth;
-import com.example.onlinevote.models.Candidate;
 import com.example.onlinevote.models.CandidateList;
 import com.example.onlinevote.models.Election;
+import com.example.onlinevote.models.ResponseResult;
 
 import java.util.ArrayList;
 import java.util.HashMap;
 
 import okhttp3.MultipartBody;
-import okhttp3.RequestBody;
 import retrofit2.Call;
 import retrofit2.http.FieldMap;
 import retrofit2.http.FormUrlEncoded;
 import retrofit2.http.GET;
-import retrofit2.http.Headers;
 import retrofit2.http.Multipart;
 import retrofit2.http.POST;
 import retrofit2.http.Part;
 import retrofit2.http.Path;
 
-public interface AppAPIInterface {
+public  interface AppAPIInterface {
 
     @FormUrlEncoded()
     @POST("verify/aadhar/")
@@ -43,4 +39,7 @@ public interface AppAPIInterface {
 
     @GET("election/{electionId}")
     Call<ArrayList<CandidateList>> fetchCandidates(@Path("electionId") int electionId);
+
+    @POST("voting/{electionId}")
+    Call<ResponseResult> vote(@Path("electionId") int electionId);
 }

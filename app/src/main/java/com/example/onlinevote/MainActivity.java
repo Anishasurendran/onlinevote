@@ -116,6 +116,7 @@ public class MainActivity extends AppCompatActivity {
                     }
                     else
                     {
+                        login.setEnabled(false);
                         DataManager.getDataManager().verifyAadhar(aadharParams(adharNumber), new RetrofitCallBack<Auth>() {
                             @Override
                             public void Success(Auth data) {
@@ -123,12 +124,13 @@ public class MainActivity extends AppCompatActivity {
                                 Session.setUserId(data.getId());
                                 DataManager.getDataManager().init(MainActivity.this);
                                 startActivity(new Intent(MainActivity.this,OTPVerificationActivity.class));
+                                login.setEnabled(true);
                             }
 
                             @Override
                             public void Failure(String error) {
                                 Toast.makeText(getApplicationContext(), "Something vent wrong", Toast.LENGTH_LONG).show();
-
+                                login.setEnabled(true);
                             }
                         });
                     }

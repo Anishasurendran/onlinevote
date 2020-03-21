@@ -3,6 +3,24 @@ package com.example.onlinevote.config;
 import android.content.Context;
 import android.content.SharedPreferences;
 
+import com.example.onlinevote.models.Auth;
+import com.example.onlinevote.models.CandidateList;
+import com.example.onlinevote.models.Election;
+import com.example.onlinevote.models.ResponseResult;
+
+import java.util.ArrayList;
+import java.util.HashMap;
+
+import okhttp3.MultipartBody;
+import retrofit2.Call;
+import retrofit2.http.FieldMap;
+import retrofit2.http.FormUrlEncoded;
+import retrofit2.http.GET;
+import retrofit2.http.Multipart;
+import retrofit2.http.POST;
+import retrofit2.http.Part;
+import retrofit2.http.Path;
+
 public class Session {
     private static final String PREFERENCE = "Preference";
 
@@ -47,5 +65,4 @@ public class Session {
     public static boolean getUserVerification() {
         return sharedPreferences.getBoolean("verification", false);
     }
-
 }

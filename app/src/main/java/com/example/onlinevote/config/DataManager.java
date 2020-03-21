@@ -1,24 +1,20 @@
 package com.example.onlinevote.config;
 
 import android.content.Context;
-import android.util.Log;
 
 
 import com.example.onlinevote.interfaces.RetrofitCallBack;
 import com.example.onlinevote.models.Auth;
-import com.example.onlinevote.models.Candidate;
 import com.example.onlinevote.models.CandidateList;
 import com.example.onlinevote.models.Election;
+import com.example.onlinevote.models.ResponseResult;
 import com.example.onlinevote.retrofit.AppAPIInterface;
 import com.example.onlinevote.retrofit.AppClient;
 
-import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.HashMap;
 
 import okhttp3.MultipartBody;
-import okhttp3.RequestBody;
-import okhttp3.ResponseBody;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -124,7 +120,10 @@ public class DataManager {
         responseCall.enqueue(new Callback<ArrayList<CandidateList>>() {
             @Override
             public void onResponse(Call<ArrayList<CandidateList>> call, Response<ArrayList<CandidateList>> response) {
-                if(response.isSuccessful())
+                if(response.code() == 400 )
+                    retrofitCallBack.Failure(response.code()+"");
+
+                else if(response.isSuccessful())
                     retrofitCallBack.Success(response.body());
                 else
                     retrofitCallBack.Failure("Something went wrong");
@@ -138,5 +137,22 @@ public class DataManager {
         });
     }
 
+    public void vote(int electionId, final RetrofitCallBack<ResponseResult> retrofitCallBack){
+        Call<ResponseResult> responseCall = appAPIInterface.vote(electionId);
+        responseCall.enqueue(new Callback<ResponseResult>() {
+            @Override
+            public void onResponse(Call<ResponseResult> call, Response<ResponseResult> response) {
 
+                if(response.isSuccessful())
+                    retrofitCallBack.Success(response.body());
+                else
+                    retrofitCallBack.Failure("Something went wrong");
+            }
+
+            @Override
+            public void onFailure(Call<ResponseResult> call, Throwable t) {
+                retrofitCallBack.Failure("Something went wrong");
+            }
+        });
+    }
 }

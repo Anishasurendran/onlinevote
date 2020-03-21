@@ -23,17 +23,29 @@ public class VoterListAdapter extends RecyclerView.Adapter<VoterListAdapter.Vote
 
     Context context;
     ArrayList<CandidateList> candidates;
+    VoterListInterface voterListInterface;
 
-    public VoterListAdapter(Context context, ArrayList<CandidateList> candidates){
+    public VoterListAdapter(Context context, ArrayList<CandidateList> candidates, VoterListInterface voterListInterface){
         this.context = context;
         this.candidates =  candidates;
+        this.voterListInterface =  voterListInterface;
+    }
+
+    public  interface VoterListInterface{
+        public  void onVoteButtonClickListener(CandidateList candidateList);
     }
 
 
     @Override
     public void onBindViewHolder(@NonNull VoteListViewHolder holder, int position) {
-        CandidateList mCandidate =   candidates.get(position);
+        final CandidateList mCandidate =   candidates.get(position);
         holder.candiadteTextView.setText(mCandidate.getCandidate().getName());
+        holder.voteButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                voterListInterface.onVoteButtonClickListener(mCandidate);
+            }
+        });
     }
 
 
