@@ -10,10 +10,10 @@ public class Election {
     @SerializedName("election_name")
     String election_name;
 
-    @SerializedName("sdate")
+    @SerializedName("election_sdate")
     String election_sdate;
 
-    @SerializedName("edate")
+    @SerializedName("election_edate")
     String election_edate;
 
     @SerializedName("location")

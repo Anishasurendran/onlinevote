@@ -1,10 +1,12 @@
 package com.example.onlinevote.adapter;
 
 import android.content.Context;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
@@ -13,13 +15,16 @@ import com.example.onlinevote.R;
 import com.example.onlinevote.models.Election;
 import com.google.android.material.card.MaterialCardView;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 
 public class ElectionListAdapter extends RecyclerView.Adapter<ElectionListAdapter.ElectionListViewHolder> {
 
     Context mContext;
     ArrayList<Election> elections;
     ElectionListInterface listInterface;
+    SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
 
     public ElectionListAdapter(Context mContext, ArrayList<Election> elections, ElectionListInterface listInterface){
         this.mContext =  mContext;
@@ -32,8 +37,21 @@ public class ElectionListAdapter extends RecyclerView.Adapter<ElectionListAdapte
     public void onBindViewHolder(@NonNull ElectionListViewHolder holder, int position) {
 
         final Election election = elections.get(position);
+        try {
+
+            Date startDate = format.parse(election.getSdate());
+            Date endDate = format.parse(election.getEdate());
+            Date curDate = new Date();
+            if(startDate.compareTo(curDate) < 0 && endDate.compareTo(curDate) > 0){
+                holder.statusTextView.setText("Started");
+            } else if(startDate.compareTo(curDate) > 0){
+                holder.statusTextView.setText("Not Started");
+            } else if(endDate.compareTo(curDate) < 0)
+                holder.statusTextView.setText("Finished");
+        }catch (Exception e){
+            Log.d("EInfo", e.toString());
+        }
         holder.electionNameTextView.setText(election.getElectionName());
-        holder.statusTextView.setText("Started");
         holder.candidateCountTextView.setText(election.getCount() + " candidates");
         holder.electionCard.setOnClickListener(new View.OnClickListener() {
             @Override
