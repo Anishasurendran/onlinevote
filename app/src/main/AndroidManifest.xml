@@ -21,12 +21,12 @@
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true"
         tools:ignore="GoogleAppIndexingWarning">
-        <activity android:name=".MainActivity"></activity>
         <activity android:name=".VerifyImageActivity" />
         <activity android:name=".HomeActivity" />
         <activity android:name=".OTPVerificationActivity" />
         <activity android:name=".Capture" />
-        <activity android:name=".ElectionActivity">
+        <activity android:name=".ElectionActivity" />
+        <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

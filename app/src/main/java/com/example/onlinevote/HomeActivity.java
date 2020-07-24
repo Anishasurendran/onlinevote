@@ -58,7 +58,6 @@ public class HomeActivity extends AppCompatActivity {
         dialogInterface =  new CustomDialog.CustomDialogInterface() {
             @Override
             public void onConfirmButtonClicked(CandidateList candidateList) {
-                Toast.makeText(getApplicationContext(), candidateList.getId()+"", Toast.LENGTH_LONG).show();
                 vote(candidateList.getId()  );
                 // Call data manager for voting
                 dialog.dismiss();
